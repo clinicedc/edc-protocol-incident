@@ -3,7 +3,7 @@
 edc-protocol-violation
 ----------------------
 
-Classes for BP, weight, etc
+Class to handle clinical trial protocol deviations and violations.
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-protocol-violation.svg
     :target: https://pypi.python.org/pypi/edc-protocol-violation
