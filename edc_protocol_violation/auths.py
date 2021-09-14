@@ -1,9 +1,4 @@
-from edc_auth.default_role_names import (
-    AUDITOR_ROLE,
-    CLINICIAN_ROLE,
-    CLINICIAN_SUPER_ROLE,
-    STATISTICIAN_ROLE,
-)
+from edc_auth.auth_objects import AUDITOR_ROLE, CLINICIAN_ROLE, CLINICIAN_SUPER_ROLE
 from edc_auth.site_auths import site_auths
 from edc_data_manager.auth_objects import DATA_MANAGER_ROLE
 
@@ -20,4 +15,3 @@ site_auths.update_role(PROTOCOL_VIOLATION, name=CLINICIAN_ROLE)
 site_auths.update_role(PROTOCOL_VIOLATION, name=CLINICIAN_SUPER_ROLE)
 site_auths.update_role(PROTOCOL_VIOLATION, name=DATA_MANAGER_ROLE)
 site_auths.update_role(PROTOCOL_VIOLATION_VIEW, name=AUDITOR_ROLE)
-site_auths.update_role(PROTOCOL_VIOLATION_VIEW, name=STATISTICIAN_ROLE)
