@@ -133,6 +133,11 @@ class TestProtocolViolation(TestCase):
         data.update({"safety_impact": YES})
         form = ProtocolDeviationViolationForm(data=data, instance=ProtocolDeviationViolation())
         form.is_valid()
+        self.assertIn("safety_impact_details", form._errors)
+
+        data.update({"safety_impact_details": "blah blah"})
+        form = ProtocolDeviationViolationForm(data=data, instance=ProtocolDeviationViolation())
+        form.is_valid()
         self.assertIn("study_outcomes_impact", form._errors)
 
         data.update({"study_outcomes_impact": YES})
