@@ -13,9 +13,7 @@ class ProtocolDeviationViolationFormValidator(FormValidator):
 
         # if violation
         self.applicable_if(VIOLATION, field="report_type", field_applicable="safety_impact")
-        self.validate_other_specify(
-            field="safety_impact", other_specify_field="safety_impact_other"
-        )
+        self.required_if(YES, field="safety_impact", field_required="safety_impact_details")
         self.applicable_if(
             VIOLATION, field="report_type", field_applicable="study_outcomes_impact"
         )
@@ -24,11 +22,20 @@ class ProtocolDeviationViolationFormValidator(FormValidator):
         )
 
         self.required_if(VIOLATION, field="report_type", field_required="violation_datetime")
-        self.required_if(VIOLATION, field="report_type", field_required="violation")
-        self.validate_other_specify(
-            field="violation",
-            other_specify_field="violation_other",
-        )
+
+        if "violation_type" in self.cleaned_data:
+            self.required_if(VIOLATION, field="report_type", field_required="violation_type")
+            self.validate_other_specify(
+                field="violation_type",
+                other_specify_field="violation_type_other",
+            )
+        if "violation" in self.cleaned_data:
+            self.required_if(VIOLATION, field="report_type", field_required="violation")
+            self.validate_other_specify(
+                field="violation",
+                other_specify_field="violation_other",
+            )
+
         self.required_if(
             VIOLATION, field="report_type", field_required="violation_description"
         )
