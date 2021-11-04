@@ -62,9 +62,10 @@ class ProtocolDeviationViolationModelMixin(models.Model):
 
     violation = models.ForeignKey(
         ProtocolViolations,
+        verbose_name="Type of violation",
         on_delete=models.PROTECT,
         null=True,
-        blank=True,
+        blank=False,
         related_name="+",
     )
 
