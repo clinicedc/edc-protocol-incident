@@ -22,6 +22,7 @@ setup(
     include_package_data=True,
     url="https://github.com/clinicedc/edc-protocol-violation",
     license="GPL license, see LICENSE",
+    long_description_content_type="text/x-rst",
     description="Classes for protocol violations and deviations in clinicedc/edc",
     long_description=README,
     zip_safe=False,
