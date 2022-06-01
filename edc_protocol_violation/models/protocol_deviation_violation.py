@@ -28,7 +28,7 @@ class ProtocolDeviationViolation(
     objects = ActionIdentifierManager()
 
     def natural_key(self):
-        return tuple(self.action_identifier)
+        return (self.action_identifier,)  # noqa
 
     class Meta(ProtocolDeviationViolationModelMixin.Meta, BaseUuidModel.Meta):
         pass
