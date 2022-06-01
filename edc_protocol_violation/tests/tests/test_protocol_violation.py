@@ -4,9 +4,11 @@ from uuid import uuid4
 from django.test.testcases import TestCase
 from edc_action_item import site_action_items
 from edc_constants.constants import CLOSED, NOT_APPLICABLE, OPEN, OTHER, YES
+from edc_list_data import site_list_data
 from edc_registration.models import RegisteredSubject
 from edc_utils import get_utcnow
 
+from edc_protocol_violation import list_data
 from edc_protocol_violation.constants import DEVIATION, VIOLATION
 from edc_protocol_violation.forms import ProtocolDeviationViolationForm
 from edc_protocol_violation.models import (
@@ -24,6 +26,9 @@ class TestProtocolViolation(TestCase):
         site_action_items.registry = {}
         action_cls = ProtocolDeviationViolationAction
         site_action_items.register(action_cls)
+        site_list_data.initialize()
+        site_list_data.register(list_data, app_name="edc_protocol_violation")
+        site_list_data.load_data()
 
         self.subject_identifier = "1234"
         RegisteredSubject.objects.create(subject_identifier=self.subject_identifier)
@@ -60,6 +65,7 @@ class TestProtocolViolation(TestCase):
                 "safety_impact": NOT_APPLICABLE,
                 "short_description": "sdasd asd asdasd ",
                 "study_outcomes_impact": NOT_APPLICABLE,
+                "violation": None,
             }
         )
 
@@ -77,6 +83,7 @@ class TestProtocolViolation(TestCase):
                 "safety_impact": NOT_APPLICABLE,
                 "short_description": "sdasd asd asdasd ",
                 "study_outcomes_impact": NOT_APPLICABLE,
+                "violation": None,
             }
         )
 

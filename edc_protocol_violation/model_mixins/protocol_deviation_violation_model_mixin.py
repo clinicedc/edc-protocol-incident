@@ -2,7 +2,7 @@ from django.db import models
 from edc_constants.choices import YES_NO_NA
 from edc_constants.constants import NOT_APPLICABLE
 from edc_model import REPORT_STATUS
-from edc_model.models import datetime_not_future
+from edc_model.validators import datetime_not_future
 from edc_utils import get_utcnow
 
 from ..choices import DEVIATION_VIOLATION
@@ -65,7 +65,7 @@ class ProtocolDeviationViolationModelMixin(models.Model):
         verbose_name="Type of violation",
         on_delete=models.PROTECT,
         null=True,
-        blank=False,
+        blank=True,
         related_name="+",
     )
 

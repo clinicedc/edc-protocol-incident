@@ -1,6 +1,6 @@
 from django import forms
 from edc_action_item.forms import ActionItemFormMixin
-from edc_constants.constants import CLOSED, OTHER, YES
+from edc_constants.constants import CLOSED, YES
 from edc_form_validators import FormValidator, FormValidatorMixin
 from edc_sites.forms import SiteModelFormMixin
 
