@@ -11,3 +11,9 @@ class ProtocolViolations(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Protocol Violations"
         verbose_name_plural = "Protocol Violations"
+
+
+class ProtocolIncidents(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Protocol Incidents"
+        verbose_name_plural = "Protocol Incidents"
