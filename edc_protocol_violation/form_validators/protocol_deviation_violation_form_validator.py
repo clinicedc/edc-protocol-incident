@@ -1,10 +1,11 @@
-from edc_constants.constants import CLOSED, YES
+from edc_constants.constants import YES
 from edc_form_validators import FormValidator
 
 from ..constants import VIOLATION
+from .mixins import IncidentFormvalidatorMixin
 
 
-class ProtocolDeviationViolationFormValidator(FormValidator):
+class ProtocolDeviationViolationFormValidator(IncidentFormvalidatorMixin, FormValidator):
     def clean(self):
         self.applicable_if(VIOLATION, field="report_type", field_applicable="safety_impact")
         self.required_if(YES, field="safety_impact", field_required="safety_impact_details")
@@ -35,17 +36,4 @@ class ProtocolDeviationViolationFormValidator(FormValidator):
         )
         self.required_if(VIOLATION, field="report_type", field_required="violation_reason")
 
-        # all
-        self.required_if(
-            CLOSED, field="report_status", field_required="corrective_action_datetime"
-        )
-        self.required_if(CLOSED, field="report_status", field_required="corrective_action")
-        self.required_if(
-            CLOSED, field="report_status", field_required="preventative_action_datetime"
-        )
-        self.required_if(CLOSED, field="report_status", field_required="preventative_action")
-        self.required_if(CLOSED, field="report_status", field_required="action_required")
-
-        self.required_if(
-            CLOSED, field="report_status", field_required="report_closed_datetime"
-        )
+        self.validate_close_report()

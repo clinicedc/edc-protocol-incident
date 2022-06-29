@@ -1,10 +1,10 @@
-from edc_constants.constants import CLOSED, OTHER, YES
+from edc_constants.constants import YES
 from edc_form_validators import INVALID_ERROR, FormValidator
 
-# from ..constants import VIOLATION
+from .mixins import IncidentFormvalidatorMixin
 
 
-class ProtocolIncidentFormValidator(FormValidator):
+class ProtocolIncidentFormValidator(IncidentFormvalidatorMixin, FormValidator):
     def clean(self):
 
         self.required_if(YES, field="safety_impact", field_required="safety_impact_details")
@@ -35,15 +35,4 @@ class ProtocolIncidentFormValidator(FormValidator):
         )
         self.validate_date_not_before_incident("preventative_action_datetime")
 
-        self.required_if(
-            CLOSED, field="report_status", field_required="report_closed_datetime"
-        )
-        self.validate_date_not_before_incident("report_closed_datetime")
-
-    def validate_date_not_before_incident(self, fld_name):
-        if self.cleaned_data.get(fld_name) and self.cleaned_data.get("incident_datetime"):
-            if self.cleaned_data.get(fld_name) < self.cleaned_data.get("incident_datetime"):
-                self.raise_validation_error(
-                    {fld_name: "May not be before incident date/time"},
-                    error_code=INVALID_ERROR,
-                )
+        self.validate_close_report()
