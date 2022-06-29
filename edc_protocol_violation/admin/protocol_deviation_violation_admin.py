@@ -2,9 +2,9 @@ from django.contrib import admin
 from edc_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
 from edc_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
-from .admin_site import edc_protocol_violation_admin
-from .forms import ProtocolDeviationViolationForm
-from .models import ProtocolDeviationViolation
+from ..admin_site import edc_protocol_violation_admin
+from ..forms import ProtocolDeviationViolationForm
+from ..models import ProtocolDeviationViolation
 
 
 @admin.register(ProtocolDeviationViolation, site=edc_protocol_violation_admin)
