@@ -13,12 +13,6 @@ class ProtocolIncidentForm(
 
     form_validator_cls = ProtocolIncidentFormValidator
 
-    subject_identifier = forms.CharField(
-        label="Subject Identifier",
-        required=False,
-        widget=forms.TextInput(attrs={"readonly": "readonly"}),
-    )
-
-    class Meta:
+    class Meta(ActionItemFormMixin.Meta):
         model = ProtocolIncident
         fields = "__all__"
