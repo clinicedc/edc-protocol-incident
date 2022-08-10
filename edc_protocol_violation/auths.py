@@ -1,7 +1,6 @@
 from django.conf import settings
 from edc_auth.auth_objects import AUDITOR_ROLE, CLINICIAN_ROLE, CLINICIAN_SUPER_ROLE
 from edc_auth.site_auths import site_auths
-from edc_data_manager.auth_objects import DATA_MANAGER_ROLE
 
 from .auth_objects import (
     PROTOCOL_INCIDENT_VIEW,
@@ -24,12 +23,10 @@ site_auths.add_group(*protocol_incident_view_codenames, name=PROTOCOL_INCIDENT_V
 if incident_type == PROTOCOL_DEVIATION_VIOLATION:
     site_auths.update_role(PROTOCOL_VIOLATION, name=CLINICIAN_ROLE)
     site_auths.update_role(PROTOCOL_VIOLATION, name=CLINICIAN_SUPER_ROLE)
-    site_auths.update_role(PROTOCOL_VIOLATION, name=DATA_MANAGER_ROLE)
     site_auths.update_role(PROTOCOL_VIOLATION_VIEW, name=AUDITOR_ROLE)
 elif incident_type == PROTOCOL_INCIDENT:
     site_auths.update_role(PROTOCOL_INCIDENT, name=CLINICIAN_ROLE)
     site_auths.update_role(PROTOCOL_INCIDENT, name=CLINICIAN_SUPER_ROLE)
-    site_auths.update_role(PROTOCOL_INCIDENT, name=DATA_MANAGER_ROLE)
     site_auths.update_role(PROTOCOL_INCIDENT_VIEW, name=AUDITOR_ROLE)
 else:
     raise ValueError(

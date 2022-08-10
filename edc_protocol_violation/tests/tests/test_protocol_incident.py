@@ -60,6 +60,7 @@ class TestProtocolIncident(TestCase):
         data = deepcopy(self.data)
         data.update(
             {
+                "subject_identifier": "12345",
                 "report_datetime": get_utcnow(),
                 "report_status": OPEN,
                 "report_type": DEVIATION,
@@ -83,6 +84,7 @@ class TestProtocolIncident(TestCase):
         data = deepcopy(self.data)
         data.update(
             {
+                "subject_identifier": "12345",
                 "report_datetime": get_utcnow() - relativedelta(days=1),
                 "report_status": OPEN,
                 "report_type": DEVIATION,
