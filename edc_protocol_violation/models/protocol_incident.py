@@ -3,10 +3,7 @@ from edc_action_item.managers import (
     ActionIdentifierSiteManager,
 )
 from edc_action_item.models import ActionModelMixin
-from edc_identifier.model_mixins import (
-    NonUniqueSubjectIdentifierFieldMixin,
-    TrackingModelMixin,
-)
+from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
 from edc_model.models import BaseUuidModel
 from edc_sites.models import SiteModelMixin
 
@@ -19,11 +16,9 @@ class ProtocolIncident(
     NonUniqueSubjectIdentifierFieldMixin,
     SiteModelMixin,
     ActionModelMixin,
-    TrackingModelMixin,
     BaseUuidModel,
 ):
     action_name = PROTOCOL_INCIDENT_ACTION
-    tracking_identifier_prefix = "PD"
     on_site = ActionIdentifierSiteManager()
     objects = ActionIdentifierManager()
 

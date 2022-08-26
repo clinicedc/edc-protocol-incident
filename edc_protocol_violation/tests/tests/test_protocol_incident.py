@@ -1,5 +1,4 @@
 from copy import deepcopy
-from uuid import uuid4
 
 from dateutil.relativedelta import relativedelta
 from django.test.testcases import TestCase
@@ -35,10 +34,7 @@ class TestProtocolIncident(TestCase):
         RegisteredSubject.objects.create(subject_identifier=self.subject_identifier)
 
         action = ProtocolIncidentAction(subject_identifier=self.subject_identifier)
-        self.data = dict(
-            tracking_identifier=uuid4().hex,
-            action_identifier=action.action_item.action_identifier,
-        )
+        self.data = dict(action_identifier=action.action_item.action_identifier)
 
     def test_incident_open_ok(self):
         data = deepcopy(self.data)
