@@ -1,5 +1,4 @@
 from copy import deepcopy
-from uuid import uuid4
 
 from django.test.testcases import TestCase
 from edc_action_item import site_action_items
@@ -35,7 +34,6 @@ class TestProtocolViolation(TestCase):
 
         action = ProtocolDeviationViolationAction(subject_identifier=self.subject_identifier)
         self.data = dict(
-            tracking_identifier=uuid4().hex,
             action_identifier=action.action_item.action_identifier,
         )
 
