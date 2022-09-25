@@ -7,6 +7,7 @@ from edc_constants.constants import CLOSED, NO, NOT_APPLICABLE, OPEN, OTHER
 from edc_list_data import site_list_data
 from edc_registration.models import RegisteredSubject
 from edc_utils import get_utcnow
+from edc_visit_schedule import site_visit_schedules
 
 from edc_protocol_violation import list_data
 from edc_protocol_violation.constants import DEVIATION
@@ -18,7 +19,7 @@ from edc_protocol_violation.models import (
 )
 
 from ..action_items import ProtocolIncidentAction
-from ..models import TestModel  # noqa
+from ..visit_schedule import visit_schedule
 
 
 class TestProtocolIncident(TestCase):
@@ -29,6 +30,8 @@ class TestProtocolIncident(TestCase):
         site_list_data.initialize()
         site_list_data.register(list_data, app_name="edc_protocol_violation")
         site_list_data.load_data()
+        site_visit_schedules._registry = {}
+        site_visit_schedules.register(visit_schedule)
 
         self.subject_identifier = "1234"
         RegisteredSubject.objects.create(subject_identifier=self.subject_identifier)
@@ -56,7 +59,7 @@ class TestProtocolIncident(TestCase):
         data = deepcopy(self.data)
         data.update(
             {
-                "subject_identifier": "12345",
+                "subject_identifier": "1234",
                 "report_datetime": get_utcnow(),
                 "report_status": OPEN,
                 "report_type": DEVIATION,
@@ -80,7 +83,7 @@ class TestProtocolIncident(TestCase):
         data = deepcopy(self.data)
         data.update(
             {
-                "subject_identifier": "12345",
+                "subject_identifier": "1234",
                 "report_datetime": get_utcnow() - relativedelta(days=1),
                 "report_status": OPEN,
                 "report_type": DEVIATION,
