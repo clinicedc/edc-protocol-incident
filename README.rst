@@ -1,9 +1,9 @@
 |pypi| |actions| |codecov| |downloads|
 
-edc-protocol-violation
-----------------------
+edc-protocol-incident
+---------------------
 
-Class to handle clinical trial protocol deviations and violations.
+Class to handle clinical trial protocol incidents (deviations and violations).
 
 There are two types of this PRN form:
 
@@ -24,14 +24,14 @@ To use this version set:
 Requires additional details for both types: `violation` and `deviation`.
 
 
-.. |pypi| image:: https://img.shields.io/pypi/v/edc-protocol-violation.svg
-    :target: https://pypi.python.org/pypi/edc-protocol-violation
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-protocol-incident.svg
+    :target: https://pypi.python.org/pypi/edc-protocol-incident
 
-.. |actions| image:: https://github.com/clinicedc/edc-protocol-violation/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-protocol-violation/actions?query=workflow:build
+.. |actions| image:: https://github.com/clinicedc/edc-protocol-incident/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-protocol-incident/actions?query=workflow:build
 
-.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-protocol-violation/branch/develop/graph/badge.svg
-  :target: https://codecov.io/gh/clinicedc/edc-protocol-violation
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-protocol-incident/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-protocol-incident
 
-.. |downloads| image:: https://pepy.tech/badge/edc-protocol-violation
-   :target: https://pepy.tech/project/edc-protocol-violation
+.. |downloads| image:: https://pepy.tech/badge/edc-protocol-incident
+   :target: https://pepy.tech/project/edc-protocol-incident

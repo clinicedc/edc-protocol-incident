@@ -1,4 +1,4 @@
 [run]
-include = edc_protocol_violation/*
-omit = edc_protocol_violation/tests/*,edc_protocol_violation/migrations/*
+include = edc_protocol_incident/*
+omit = edc_protocol_incident/tests/*,edc_protocol_incident/migrations/*
 branch = 1

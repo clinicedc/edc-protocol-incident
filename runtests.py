@@ -10,7 +10,7 @@ from django.test.runner import DiscoverRunner
 from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings
 
-app_name = "edc_protocol_violation"
+app_name = "edc_protocol_incident"
 base_dir = dirname(abspath(__file__))
 
 DEFAULT_SETTINGS = DefaultTestSettings(
@@ -21,17 +21,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_SKIP_AUTH_UPDATER=True,
-    # INSTALLED_APPS=[
-    #     "django.contrib.admin",
-    #     "django.contrib.auth",
-    #     "django.contrib.contenttypes",
-    #     "django.contrib.sessions",
-    #     "django.contrib.messages",
-    #     "django.contrib.staticfiles",
-    #     "django.contrib.sites",
-    #     "edc_protocol_violation.apps.AppConfig",
-    # ],
-    # use_test_urls=True,
     add_dashboard_middleware=True,
     add_lab_dashboard_middleware=True,
 ).settings
