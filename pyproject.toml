@@ -18,10 +18,10 @@ skip = [".tox", ".eggs", "migrations"]
 [tool.coverage.run]
 parallel = true
 branch = true
-source = ["edc_protocol_violation"]
+source = ["edc_protocol_incident"]
 
 [tool.coverage.paths]
-source = ["edc_protocol_violation"]
+source = ["edc_protocol_incident"]
 
 [tool.coverage.report]
 show_missing = true
