@@ -21,17 +21,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_SKIP_AUTH_UPDATER=True,
-    # INSTALLED_APPS=[
-    #     "django.contrib.admin",
-    #     "django.contrib.auth",
-    #     "django.contrib.contenttypes",
-    #     "django.contrib.sessions",
-    #     "django.contrib.messages",
-    #     "django.contrib.staticfiles",
-    #     "django.contrib.sites",
-    #     "edc_protocol_incident.apps.AppConfig",
-    # ],
-    # use_test_urls=True,
     add_dashboard_middleware=True,
     add_lab_dashboard_middleware=True,
 ).settings
