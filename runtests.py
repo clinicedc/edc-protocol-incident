@@ -23,7 +23,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     EDC_AUTH_SKIP_AUTH_UPDATER=True,
     add_dashboard_middleware=True,
     add_lab_dashboard_middleware=True,
-    excluded_apps=["edc_protocol_violation.apps.AppConfig"],
 ).settings
 
 
