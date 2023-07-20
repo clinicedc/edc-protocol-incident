@@ -1,4 +1,5 @@
 from django.db import models
+from django_crypto_fields.fields import EncryptedCharField, EncryptedTextField
 from edc_constants.choices import YES_NO
 from edc_model.validators import datetime_not_future
 from edc_utils import get_utcnow
@@ -12,17 +13,11 @@ class ProtocolIncidentModelMixin(models.Model):
         verbose_name="Report Date and Time", default=get_utcnow
     )
 
-    short_description = models.CharField(
+    short_description = EncryptedCharField(
         verbose_name="Provide a short description of this incident",
-        max_length=35,
         null=True,
         blank=False,
-        help_text=(
-            (
-                "Max 35 characters. Note: there is additional space below for "
-                "a more detailed description"
-            )
-        ),
+        help_text="Note: there is additional space below for a more detailed description",
     )
 
     report_type = models.CharField(
@@ -69,14 +64,14 @@ class ProtocolIncidentModelMixin(models.Model):
         null=True, blank=True, verbose_name="If other, please specify", max_length=75
     )
 
-    incident_description = models.TextField(
+    incident_description = EncryptedTextField(
         verbose_name="Describe the incident",
         null=True,
         blank=False,
         help_text="Describe in full. Explain how the incident happened, what occurred, etc.",
     )
 
-    incident_reason = models.TextField(
+    incident_reason = EncryptedTextField(
         verbose_name="Explain the reason why the incident occurred",
         null=True,
         blank=False,
@@ -89,7 +84,7 @@ class ProtocolIncidentModelMixin(models.Model):
         blank=True,
     )
 
-    corrective_action = models.TextField(
+    corrective_action = EncryptedTextField(
         verbose_name="Corrective action taken", null=True, blank=True
     )
 
@@ -100,7 +95,7 @@ class ProtocolIncidentModelMixin(models.Model):
         blank=True,
     )
 
-    preventative_action = models.TextField(
+    preventative_action = EncryptedTextField(
         verbose_name="Preventative action taken", null=True, blank=True
     )
 
@@ -118,7 +113,7 @@ class ProtocolIncidentModelMixin(models.Model):
         choices=REPORT_STATUS,
     )
 
-    reasons_withdrawn = models.TextField(null=True, blank=True)
+    reasons_withdrawn = EncryptedTextField(null=True, blank=True)
 
     report_closed_datetime = models.DateTimeField(
         blank=True,
