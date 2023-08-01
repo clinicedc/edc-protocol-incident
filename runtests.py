@@ -18,6 +18,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     template_dirs=[os.path.join(base_dir, app_name, "tests", "templates")],
     BASE_DIR=base_dir,
     APP_NAME=app_name,
+    SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_SKIP_AUTH_UPDATER=True,
