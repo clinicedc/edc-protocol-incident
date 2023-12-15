@@ -27,8 +27,8 @@ Requires additional details for both types: `violation` and `deviation`.
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-protocol-incident.svg
     :target: https://pypi.python.org/pypi/edc-protocol-incident
 
-.. |actions| image:: https://github.com/clinicedc/edc-protocol-incident/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-protocol-incident/actions?query=workflow:build
+.. |actions| image:: https://github.com/clinicedc/edc-protocol-incident/actions/workflows/build.yml/badge.svg
+  :target: https://github.com/clinicedc/edc-protocol-incident/actions/workflows/build.yml
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-protocol-incident/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-protocol-incident
