@@ -11,6 +11,8 @@ from edc_sites.model_mixins import SiteModelMixin
 from edc_utils import get_utcnow
 from edc_visit_schedule.model_mixins import OffScheduleModelMixin, OnScheduleModelMixin
 
+from .consents import consent_v1
+
 
 class SubjectConsent(
     SiteModelMixin,
@@ -33,6 +35,7 @@ class SubjectConsent(
 
 
 class SubjectScreening(ScreeningModelMixin, BaseUuidModel):
+    consent_definition = consent_v1
     objects = SubjectIdentifierManager()
 
 
