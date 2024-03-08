@@ -47,6 +47,7 @@ project_settings = DefaultTestSettings(
         "edc_prn.apps.AppConfig",
         "edc_pdf_reports.apps.AppConfig",
         "edc_protocol_incident.apps.AppConfig",
+        "protocol_app.apps.AppConfig",
         "edc_appconfig.apps.AppConfig",
     ],
     add_dashboard_middleware=True,
